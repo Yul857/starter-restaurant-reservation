@@ -1,7 +1,7 @@
 # Thinkful-Final-Capstone: Restaurant Reservation System
 
 ## Live Site
-[Restaurant Reservation System]( "Restaurant Reservation System")  
+[Restaurant Reservation System](https://kevin-restaurant-reservation.herokuapp.com/dashboard "Restaurant Reservation System")  
 
 ## Application Summary
 A Restaurant Reservation App that is used to create and record reservations and table assignments.  
