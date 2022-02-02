@@ -45,5 +45,5 @@ LOG_LEVEL=info
 
 ### Project Screenshots
 
-![project reservations form page](screenshots/reservationsForm.png)
-![project-tablesform page](screenshots/tablesForm.png)
+![project reservations form page](/./screenshots/reservationsForm.png?raw=true)
+![project-tablesform page](/./screenshots/tablesForm.png?raw=true)
