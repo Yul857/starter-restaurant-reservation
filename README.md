@@ -30,12 +30,18 @@ is sat it also allows the table to be switched back to unoccupied to let you sea
 * Heroku
   * Migrated the backend and frontend to Heroku cloud server
 
+### Project Screenshots
+
+![project reservations form page](/./screenshots/reservationsForm.png?raw=true)
+![project-tablesform page](/./screenshots/tablesForm.png?raw=true)
+
 ## Installation
 1. Run `npm install` to install project dependencies.
 2. To start the server and client run `npm start`
 3. connect to a postgresql database by creating .env files for the backend and frontend
  ```js
-// back-end .env example -> Connects to database
+
+ <!-- back-end .env example -> Connects to database -->
 DATABASE_URL=enter-your-production-database-url-here
 DATABASE_URL_DEVELOPMENT=enter-your-development-database-url-here
 DATABASE_URL_TEST=enter-your-test-database-url-here
@@ -43,7 +49,4 @@ DATABASE_URL_PREVIEW=enter-your-preview-database-url-here
 LOG_LEVEL=info
 
 
-### Project Screenshots
 
-![project reservations form page](/./screenshots/reservationsForm.png?raw=true)
-![project-tablesform page](/./screenshots/tablesForm.png?raw=true)
