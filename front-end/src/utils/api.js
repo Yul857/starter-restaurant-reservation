@@ -4,6 +4,7 @@
  */
 import formatReservationDate from "./format-reservation-date";
 import formatReservationTime from "./format-reservation-date";
+import axios from "axios";
 
 const API_BASE_URL =
   process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
@@ -66,4 +67,65 @@ export async function listReservations(params, signal) {
   return await fetchJson(url, { headers, signal }, [])
     .then(formatReservationDate)
     .then(formatReservationTime);
+}
+
+export async function readReservation(reservationId, signal) {
+  const url = new URL(`${API_BASE_URL}/reservations/${reservationId}`);
+  return await fetchJson(url, { signal });
+}
+
+export async function createReservation(reservation, signal) {
+  const url = new URL(`${API_BASE_URL}/reservations`);
+  const options = {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ data: reservation }),
+    signal,
+  };
+  return await fetchJson(url, options, reservation);
+}
+export async function listTables(signal) {
+  const url = new URL(`${API_BASE_URL}/tables`);
+  return await fetchJson(url, { signal });
+}
+
+export async function createTable(table, signal) {
+  const url = new URL(`${API_BASE_URL}/tables`);
+  const options = {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ data: table }),
+    signal,
+  };
+  return await fetchJson(url, options, table);
+}
+
+export async function updateTable(table_id, reservation_id) {
+  return await axios.put(
+    `${API_BASE_URL}/tables/${table_id}/seat`,
+    reservation_id
+  );
+}
+
+export async function clearTable(table_id, signal) {
+  const url = new URL(`${API_BASE_URL}/tables/${table_id}/seat`);
+  const options = { method: "DELETE", signal };
+  return await fetchJson(url, options);
+}
+
+export async function updateReservation(id, updatedReservation, signal) {
+  return await axios.put(`${API_BASE_URL}/reservations/${id}`, {
+    data: updatedReservation,
+  });
+}
+
+export async function cancelReservation(id, signal) {
+  const url = new URL(`${API_BASE_URL}/reservations/${id}/status`);
+  const options = {
+    method: "PUT",
+    headers,
+    body: JSON.stringify({ data: { status: "cancelled" } }),
+    signal,
+  };
+  return await fetchJson(url, options);
 }
